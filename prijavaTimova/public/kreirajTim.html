@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Mono" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="css/terminal.css">
+    <link rel="stylesheet" href="css/kreirajTim.css">
+    <title>Create team</title>
+</head>
+
+<body class="p-0 pt-4 p-lg-4">
+    <div class="modal fade" id="modal-create-team" tabindex="-1" role="dialog" aria-labelledby="modal-create-team-title"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title js-modal-title" id="modal-create-team-title">{{Notification}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body js-modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <a type="button" class="btn btn-primary js-modal-ok" href="listaTimova.html">OK</a>
+                    <button type="button" class="btn btn-primary js-modal-quit" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 col-lg-3" data-i18n>
+                <a class="btn btn-outline-light btn-block" href="listaTimova.html">{{Back}}</a>
+            </div>
+
+            <div class="col-md-12 col-lg-9">
+                <form id="forma" action="#" method="POST" class="form-horizontal">
+                    <div id="divForm">
+                        <div id="divGroup">
+                            <div class="opsteInformacije">
+                                <div class="row">
+                                    <div class="col-lg-9">
+                                        <div class="formGroup">
+                                            <label for="imeTima">{{Name}}</label>
+                                            <div class="terminal-cursor">
+                                                <input required class="form-control" type="text" name="name" id="name" />
+                                            </div>
+                                        </div>
+                                        <div class="formGroup">
+                                            <label for="opisTima">{{Description}}</label>
+                                            <div class="terminal-cursor">
+                                                <input required class="form-control" type="text" name="description" id="description">
+                                            </div>
+                                        </div>
+                                        <div class="formGoup">
+                                            <label for="slikaTima">{{Photo URL}}</label>
+                                            <div class="terminal-cursor u-hidden">
+                                                <input required class="form-control" type="text" name="photo_url" id="photo_url" />
+                                            </div>
+                                            <input type="file" accept="image/*" class="js-photo-input">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-3 js-photo-holder"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="divChoice">
+                            <img class="img-responsive imgChoice" id="imgThreeMembers" src="img/choice-three.png" alt="group-of-three" onclick="showFormMember(false)">
+                            <img class="img-responsive imgChoice imgFourMembers" src="img/choice-four.png" alt="group-of-four" onclick="showFormMember(true)">
+                        </div>
+
+                        <div id="teamMembersRow" class="row">
+                            <div class="memberOfGroup">
+                                <h3 class="headingMember">{{First member}}</h3>
+                                <div class="formMembers">
+                                    <label for="ime">{{First name}}</label>
+                                    <div class="terminal-cursor">
+                                        <input required class="form-control" type="text" name="first_name" id="first_name1" />
+                                    </div>
+                                </div>
+                                <div class="formMembers">
+                                    <label for="prezime">{{Last name}}</label>
+                                    <div class="terminal-cursor">
+                                        <input required class="form-control" type="text" name="last_name" id="last_name1" />
+                                    </div>
+                                </div>
+                                <div class="formMembers">
+                                    <label for="prezime">{{Email}}</label>
+                                    <div class="terminal-cursor">
+                                        <input required class="form-control" type="text" name="email" id="email1" />
+                                    </div>
+                                </div>
+
+                                <div class="formMembers">
+                                    <label for="ime">{{Phone number}}</label>
+                                    <div class="terminal-cursor">
+                                        <input required class="form-control" type="text" name="phone_number" id="phone_number1" />
+                                    </div>
+                                </div>
+                                <div class="formMembers">
+                                    <label for="prezime">{{School}}</label>
+                                    <div class="terminal-cursor">
+                                        <input required class="form-control" type="text" name="school" id="school1" />
+                                    </div>
+                                </div>
+                                <div class="formMembers">
+                                    <label for="ime">{{City}}</label>
+                                    <div class="terminal-cursor">
+                                        <input required class="form-control" type="text" name="city" id="city1" />
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="memberOfGroup">
+                                <h3 class="headingMember">{{Second member}}</h3>
+                                <div class="formMembers">
+                                    <div class="formMembers">
+                                        <label for="ime">{{First name}}</label>
+                                        <div class="terminal-cursor">
+                                            <input required class="form-control" type="text" name="first_name" id="first_name1" />
+                                        </div>
+                                    </div>
+                                    <div class="formMembers">
+                                        <label for="prezime">{{Last name}}</label>
+                                        <div class="terminal-cursor">
+                                            <input required class="form-control" type="text" name="last_name" id="last_name1" />
+                                        </div>
+                                    </div>
+                                    <div class="formMembers">
+                                        <label for="prezime">{{Email}}</label>
+                                        <div class="terminal-cursor">
+                                            <input required class="form-control" type="text" name="email" id="email1" />
+                                        </div>
+                                    </div>
+
+                                    <div class="formMembers">
+                                        <label for="ime">{{Phone number}}</label>
+                                        <div class="terminal-cursor">
+                                            <input required class="form-control" type="text" name="phone_number" id="phone_number1" />
+                                        </div>
+                                    </div>
+                                    <div class="formMembers">
+                                        <label for="prezime">{{School}}</label>
+                                        <div class="terminal-cursor">
+                                            <input required class="form-control" type="text" name="school" id="school1" />
+                                        </div>
+                                    </div>
+                                    <label for="ime">{{City}}</label>
+                                    <div class="terminal-cursor">
+                                        <input required class="form-control" type="text" name="city" id="city1" />
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="memberOfGroup">
+                                <h3 class="headingMember">{{Third member}}</h3>
+                                <div class="formMembers">
+                                    <div class="formMembers">
+                                        <label for="ime">{{First name}}</label>
+                                        <div class="terminal-cursor">
+                                            <input required class="form-control" type="text" name="first_name" id="first_name1" />
+                                        </div>
+                                    </div>
+                                    <div class="formMembers">
+                                        <label for="prezime">{{Last name}}</label>
+                                        <div class="terminal-cursor">
+                                            <input required class="form-control" type="text" name="last_name" id="last_name1" />
+                                        </div>
+                                    </div>
+                                    <div class="formMembers">
+                                        <label for="prezime">{{Email}}</label>
+                                        <div class="terminal-cursor">
+                                            <input required class="form-control" type="text" name="email" id="email1" />
+                                        </div>
+                                    </div>
+
+                                    <div class="formMembers">
+                                        <label for="ime">{{Phone number}}</label>
+                                        <div class="terminal-cursor">
+                                            <input required class="form-control" type="text" name="phone_number" id="phone_number1" />
+                                        </div>
+                                    </div>
+                                    <div class="formMembers">
+                                        <label for="prezime">{{School}}</label>
+                                        <div class="terminal-cursor">
+                                            <input required class="form-control" type="text" name="school" id="school1" />
+                                        </div>
+                                    </div>
+                                    <label for="ime">{{City}}</label>
+                                    <div class="terminal-cursor">
+                                        <input required class="form-control" type="text" name="city" id="city1" />
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="memberOfGroup" id='forthMember'>
+                                <h3 class="headingMember">{{Fourth member}}</h3>
+                                <div class="formMembers">
+                                    <div class="formMembers">
+                                        <label for="ime">{{First name}}</label>
+                                        <div class="terminal-cursor">
+                                            <input required class="form-control" type="text" name="first_name" id="first_name1" />
+                                        </div>
+                                    </div>
+                                    <div class="formMembers">
+                                        <label for="prezime">{{Last name}}</label>
+                                        <div class="terminal-cursor">
+                                            <input required class="form-control" type="text" name="last_name" id="last_name1" />
+                                        </div>
+                                    </div>
+                                    <div class="formMembers">
+                                        <label for="prezime">{{Email}}</label>
+                                        <div class="terminal-cursor">
+                                            <input required class="form-control" type="text" name="email" id="email1" />
+                                        </div>
+                                    </div>
+
+                                    <div class="formMembers">
+                                        <label for="ime">{{Phone number}}</label>
+                                        <div class="terminal-cursor">
+                                            <input required class="form-control" type="text" name="phone_number" id="phone_number1" />
+                                        </div>
+                                    </div>
+                                    <div class="formMembers">
+                                        <label for="prezime">{{School}}</label>
+                                        <div class="terminal-cursor">
+                                            <input required class="form-control" type="text" name="school" id="school1" />
+                                        </div>
+                                    </div>
+                                    <label for="ime">{{City}}</label>
+                                    <div class="terminal-cursor">
+                                        <input required class="form-control" type="text" name="city" id="city1" />
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-outline-success btn-block u-margin-top">{{Create team}}</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-load-image/2.20.1/load-image.all.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/secret.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/kreirajTim.js"></script>
+
+</body>
+
+</html>

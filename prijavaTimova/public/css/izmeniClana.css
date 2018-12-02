@@ -1,0 +1,31 @@
+.memberOfGroup{
+    padding: 10px;
+}
+
+.form-control {
+    background: none;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 1em;
+    border-width: 0px;
+}
+
+.form-control:focus,
+.form-control:hover {
+    border-bottom: 1px solid white;
+}
+
+.form-control:focus {
+    background: none;
+}
+
+input {
+    text-shadow: none;
+    color: white !important;
+}
+
+.formMembers label {
+    color: #777;
+    text-shadow: none;
+    font-size: 80%;
+}
